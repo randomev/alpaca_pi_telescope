@@ -12,6 +12,7 @@ verbose_driver_exceptions = true
 can_reverse = true
 step_size = 1.0
 steps_per_sec = 6
+serial_port = '/dev/ttyACM0'
 
 [logging]
 log_level = 'INFO'

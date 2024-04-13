@@ -62,6 +62,7 @@ from wsgiref.simple_server import WSGIRequestHandler, make_server
 import discovery
 import exceptions
 from falcon import Request, Response, App, HTTPInternalServerError
+
 import management
 import setup
 import log
@@ -226,6 +227,7 @@ def main():
     # FOR EACH ASCOM DEVICE #
     #########################
     telescope.logger = logger
+    telescope.start_tel_device(logger, Config)
 
     # -----------------------------
     # Last-Chance Exception Handler
@@ -241,6 +243,7 @@ def main():
     # MAIN HTTP/REST API ENGINE (FALCON)
     # ----------------------------------
     # falcon.App instances are callable WSGI apps
+    #falc_app = App(middleware=[PreProcessMiddleware()])
     falc_app = App()
     #
     # Initialize routes for each endpoint the magic way
